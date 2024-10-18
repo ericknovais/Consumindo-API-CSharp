@@ -6,10 +6,8 @@ internal class LingFilter
 {
     public static void FiltrarTodosOsGenerosMusicais(List<Musica> musicas)
     {
-        var todosOsGenros = musicas.Select(generos => generos.Genero).Distinct().ToList();
-        foreach (var genero in todosOsGenros)
-        {
+        var todosOsGenerosMusicais = musicas.Select(generos => generos.Genero).Distinct().ToList();
+        foreach (var genero in todosOsGenerosMusicais)
             Console.WriteLine($"- {genero}");
-        }
     }
 }
