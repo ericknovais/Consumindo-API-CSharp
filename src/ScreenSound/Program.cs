@@ -14,12 +14,24 @@ internal class Program
             {
                 string endPoint = "https://guilhermeonrails.github.io/api-csharp-songs/songs.json";
                 string respota = await client.GetStringAsync(endPoint);
-                var musicas = JsonSerializer.Deserialize<List<Musica>>(respota);
+                List<Musica>? musicas = JsonSerializer.Deserialize<List<Musica>>(respota);
+                musicas = musicas != null ? musicas : new List<Musica>();
+                //LingFilter.FiltrarTodosOsGenerosMusicais(musicas);
+                //LingOrder.ExibirListaDeArtistasOrdenados(musicas, ehDescendente: true);
+                //LingFilter.FiltrarArtistasPorGeneroMusical(musicas, "rock");
 
-                LingFilter.FiltrarTodosOsGenerosMusicais(musicas);
+                LingFilter.FiltrarMusicasDeUmArtista(musicas, "3 Doors Down");
 
                 //if (musicas != null && musicas.Count > 0)
                 //    musicas.ForEach(m => m.ExibirDetalhesDaMusica());
+
+                MusicasPreferidas musicasPreferidasErick = new MusicasPreferidas("Erick");
+                for (int i = 0; i < 5; i++)
+                    musicasPreferidasErick.AdicionarMusicasFavoritas(musicas[new Random().Next(1, 1999)]);
+
+                musicasPreferidasErick.ExibirMusicasFavoritas();
+                musicasPreferidasErick.GerarArquivoJson();
+
             }
             catch (Exception ex)
             {
