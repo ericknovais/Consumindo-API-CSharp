@@ -21,7 +21,7 @@ internal class Program
                 //LingFilter.FiltrarArtistasPorGeneroMusical(musicas, "rock");
 
                 LingFilter.FiltrarMusicasDeUmArtista(musicas, "3 Doors Down");
-
+                LingFilter.FiltarMusicasEmCSharp(musicas);
                 //if (musicas != null && musicas.Count > 0)
                 //    musicas.ForEach(m => m.ExibirDetalhesDaMusica());
 
