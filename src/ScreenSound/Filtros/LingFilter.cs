@@ -29,4 +29,15 @@ public class LingFilter
             Console.WriteLine($"- {musica.Nome}");
 
     }
+
+    internal static void FiltarMusicasEmCSharp(List<Musica> musicas)
+    {
+        var musicasEmShasp = musicas
+            .Where(musica => musica.Tonalidade.Equals("C#"))
+            .Select(musica => musica.Nome)
+            .ToList();
+        Console.WriteLine("Musicas em C#");
+        foreach (var musica in musicasEmShasp)
+            Console.WriteLine($"- {musica}");
+    }
 }
